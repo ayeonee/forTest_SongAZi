@@ -7,16 +7,38 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin : 50px;  
+    margin : 50px 150px;  
 }
 .consumer-page > header{
     width:100%;
-    max-width: 935px;
+    max-width: 1440px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 #logoimage{
-    width: 150px;
-    flex : 0 0 150px;
     margin-right : 50px;
+}
+.search{
+    height: 40px;
+    width: 400px;
+    border: 2px solid #9DFF33;
+    background-color: #FFFFFF;
+}
+.search > input{
+    font-size: 14px;
+    border: 0;
+    padding: 11px;
+    text-align: left;
+    width: 325px;
+    outline: none;
+}
+button{
+    cursor : pointer;
+    width: 40px;
+    height: 100%;
+    float:right;
+    border:0;
+    background-color:#9DFF33;
+    color: white;
+    outline:none;
 }

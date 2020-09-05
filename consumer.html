@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <link rel="stylesheet" href="consumer.css">
     <head>
         <meta charset="utf-8">
         <title>SongAJi</title>
+        <link rel="stylesheet" href="consumer.css">
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js">
+        </script>
     </head>
     <body>
         <main class="consumer-page">
             <header class="page-top">
                 <div class="logo">
                     <a href="" class="logo-img">
-                        <img src="https://cdn.sketchpan.com/member/h/hida751/draw/1217899117004/0.png" id="logoimage" alt="SongAJi">
+                        <img src="http://placehold.it/100x70" id="logoimage" alt="SongAJi">
                     </a>
                 </div>
-                <div class="search">
-                    <input type="text" name="search" placeholder="제품명을 입력해주세요.">
-                </div>
+                <form class="search" action="#" method="get">
+                        <input type="text" name="search" maxlength=100 placeholder="제품명을 입력해주세요.">
+                        <button class="img-button" type="submit" name="click">
+                            <i class="fas fa-search"></i>
+                        </button>
+                </form>
                 <nav class="login-signup">
                     <a href="/login" target="_self">로그인</a>
                     <a href="/signup" target="_self">회원가입</a>
