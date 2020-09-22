@@ -4,8 +4,6 @@
         <meta charset="utf-8">
         <title>Song A Zi</title>
         <link rel="stylesheet" href="consumer.css">
-        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js">
-        </script>
     </head>
     <body>
         <main class="consumer-page">
@@ -22,33 +20,60 @@
                         </button>
                 </form>
                 <nav class="login-signup">
-                    <a href="/login" target="_self">로그인</a>
-                    <a href="/signup" target="_self">회원가입</a>
+                    <a href="./login" class="l-s" target="_self">로그인</a>
+                    <a href="./signup" class="l-s" target="_self">회원가입</a>
                 </nav>
             </header>
-            <hr>
             <section class="consumer">
                 <nav class="category">
-                    <ul>
+                    <ul class="categoryUl">
                         <li class="category-item">
-                            <a href="/clothes" target="_blank">의류</a>
+                            <a href="./clothes" class="item-link" target="_self">의류</a>
                         </li>
                         <li class="category-item">
-                            <a href="/shoes" target="_blank">신발</a>
+                            <a href="./shoes" class="item-link" target="_self">신발</a>
                         </li>
                         <li class="category-item">
-                            <a href="/cosmetic" target="_blank">화장품</a>
+                            <a href="./cosmetic" class="item-link" target="_self">화장품</a>
                         </li>
                         <li class="category-item">
-                            <a href="/brand" target="_blank">브랜드</a>
+                            <a href="./brand" class="item-link" target="_self">브랜드</a>
                         </li>
                         <li class="category-item">
-                            <a href="/#" target="_blank">Add</a>
+                            <a href="./#" class="item-link" target="_self">Add</a>
                         </li>
                     </ul>
                 </nav>
-                <hr>
                 <article>
+                    <div id="slide container">
+                        <div class="slide_wrap">
+                            <div class="slide_btn_box">
+                                <button type="button" class="slide_btn_prev">Prev</button>
+                            </div>
+                            <div class="slide_box">
+                                <div class="slide_list">
+                                    <div class="slide_content slide1">
+                                        <h3>1</h3>
+                                    </div>
+                                    <div class="slide_content slide2">
+                                        <h3>2</h3>
+                                    </div>
+                                    <div class="slide_content slide3">
+                                        <h3>3</h3>
+                                    </div>
+                                    <div class="slide_content slide4">
+                                        <h3>4</h3>
+                                    </div>
+                                    <div class="slide_content slide5">
+                                        <h3>5</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide_btn_box">
+                                <button type="button" class="slide_btn_next">Next</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="map">map</div>
                     <div class="anything">anything</div>
                 </article>
@@ -61,5 +86,8 @@
                 </span>
             </footer>
         </main>
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js">
+        </script>
+        <script src="consumer.js"></script>
     </body>
 </html>
