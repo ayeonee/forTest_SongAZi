@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>Song A Zi</title>
+        <link rel="stylesheet" href="consumer.css">
+    </head>
+    <body>
+        <main class="consumer-page">
+            <header class="page-top">
+                <div class="logo">
+                    <a href="" class="logo-img">
+                        <img src="http://placehold.it/100x70" id="logoimage" alt="SongAZi">
+                    </a>
+                </div>
+                <form class="search" action="#" method="get">
+                        <input type="text" name="search" maxlength=100 placeholder="제품명을 입력해주세요.">
+                        <button class="img-button" type="submit" name="click">
+                            <i class="fas fa-search"></i>
+                        </button>
+                </form>
+                <nav class="login-signup">
+                    <a href="./login" class="l-s" target="_self">로그인</a>
+                    <a href="./signup" class="l-s" target="_self">회원가입</a>
+                </nav>
+            </header>
+            <section class="consumer">
+                <nav class="category">
+                    <ul class="categoryUl">
+                        <li class="category-item">
+                            <a href="./clothes" class="item-link" target="_self">의류</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="./shoes" class="item-link" target="_self">신발</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="./cosmetic" class="item-link" target="_self">화장품</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="./brand" class="item-link" target="_self">브랜드</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="./#" class="item-link" target="_self">Add</a>
+                        </li>
+                    </ul>
+                </nav>
+                <article>
+                    <div id="slide container">
+                        <div class="slide_wrap">
+                            <div class="slide_btn_box">
+                                <button type="button" class="slide_btn_prev">Prev</button>
+                            </div>
+                            <div class="slide_box">
+                                <div class="slide_list">
+                                    <div class="slide_content slide1">
+                                        <h3>1</h3>
+                                    </div>
+                                    <div class="slide_content slide2">
+                                        <h3>2</h3>
+                                    </div>
+                                    <div class="slide_content slide3">
+                                        <h3>3</h3>
+                                    </div>
+                                    <div class="slide_content slide4">
+                                        <h3>4</h3>
+                                    </div>
+                                    <div class="slide_content slide5">
+                                        <h3>5</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide_btn_box">
+                                <button type="button" class="slide_btn_next">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map">map</div>
+                    <div class="anything">anything</div>
+                </article>
+            </section>
+            <hr>
+            <footer class="info">
+                <div class="information">information</div>
+                <span class="copyright">
+                    © SONGAZI   
+                </span>
+            </footer>
+        </main>
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js">
+        </script>
+        <script src="consumer.js"></script>
+    </body>
+</html>
