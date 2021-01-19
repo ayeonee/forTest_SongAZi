@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
+import SDK from './Components/KakaoSDK';
+
 
 const LoginContainer = styled.div`
   width : 100vw;
@@ -30,8 +32,6 @@ const ContainerBody = styled.div`
     height: 300px;
 `;
 
-
-
 const LoginPage = () =>{
   const responseGoogle = (response)=>{
     console.log(response);
@@ -55,13 +55,16 @@ const LoginPage = () =>{
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
           />
+
+          <SDK/>
           <KakaoLogin
-            jsKey='d61079c156018c7a8055d9a015191dfa'
+            jsKey="d61079c156018c7a8055d9a015191dfa"
             buttonBox = "KakaoLogin"
             onSuccess={responseKakao}
             onFailure={responseKakao}
             cookiePolicy={'single_host_origin'}
           />
+          
         </ContainerBody>
       </Container>
     </LoginContainer>
