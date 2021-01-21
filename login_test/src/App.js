@@ -1,10 +1,69 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
-const token = "d61079c156018c7a8055d9a015191dfa";
+const kakaoToken = "d61079c156018c7a8055d9a015191dfa";
 
+
+const Login = () => {
+
+  const [userInfo, setUserInfo]=useState({
+    id:'',
+    name : '',
+    provider:'',
+  });
+
+  const {id, name, provider} = userInfo;
+
+  const responseGoogle = (response)=>{
+    setUserInfo({
+      [id] : response.googleId,
+      [name] : response.profileObj.name,
+      [provider] : "google",
+    });
+  }
+
+  const responseKakao = (response) => {
+    setUserInfo({
+      [id] : response.profile.id,
+      [name] : response.profile.properties.nickname,
+      [provider] : "kakao"
+    });
+  }
+  console.log(userInfo);
+
+  const responseFail=(err)=>{
+    console.error(err);
+  }
+
+  return(
+    <LoginContainer>
+      <Container>
+        <ContainerTop>
+          <h1>Welcome To MEEMO!</h1>
+        </ContainerTop>
+        <ContainerBody>
+          <GoogleLogin
+            clientId="723578906212-p9e6ejvqm6rbbk4d2lo0djvks5j3k530.apps.googleusercontent.com"
+            buttonBox = "GoogleLogin"
+            onSuccess={responseGoogle}
+            onFailure={responseFail}
+            cookiePolicy={'single_host_origin'}
+          />
+          <KakaoLogin
+            token={kakaoToken}
+            onSuccess={responseKakao}
+            onFail={responseFail}
+            onLogout={console.info}
+            useLoginForm
+          />
+        </ContainerBody>
+      </Container>
+    </LoginContainer>
+  );
+  
+};
 
 const LoginContainer = styled.div`
   width : 100vw;
@@ -33,39 +92,4 @@ const ContainerBody = styled.div`
     height: 300px;
 `;
 
-
-
-
-const LoginPage = () =>{
-  const responseGoogle = (response)=>{
-    console.log(response);
-  }
-
-  return(
-    <LoginContainer>
-      <Container>
-        <ContainerTop>
-          <h1>Welcome To MEEMO!</h1>
-        </ContainerTop>
-        <ContainerBody>
-          <GoogleLogin
-            clientId="723578906212-p9e6ejvqm6rbbk4d2lo0djvks5j3k530.apps.googleusercontent.com"
-            buttonBox = "GoogleLogin"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
-          <KakaoLogin
-            token={token}
-            onSuccess={console.log}
-            onFail={console.error}
-            onLogout={console.info}
-            useLoginForm
-          />
-        </ContainerBody>
-      </Container>
-    </LoginContainer>
-  );
-};
-
-export default LoginPage;
+export default Login;
