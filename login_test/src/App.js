@@ -14,9 +14,10 @@ const App = () =>{
     setLogged(false);
   }
 
+  const value={logged, onLogin, onLogout}
   return (
    <div>
-     <Store.Provider value={logged, onLogin, onLogout}>
+     <Store.Provider value={value}>
        <LoginContainer/>
      </Store.Provider>
    </div>

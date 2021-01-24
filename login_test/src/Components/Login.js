@@ -3,9 +3,9 @@ import styled from "styled-components";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
-const Login = ({onLogin}) => {
-  const [userInfo, setUserInfo]=useState([]);
+const Login = ({logged, onLogin}) => {
 
+  const [userInfo, setUserInfo]=useState([]);
   const responseGoogle = (response)=>{
     setUserInfo([
       {
@@ -29,12 +29,12 @@ const Login = ({onLogin}) => {
     ]);
     onLogin();
   }
-  console.log(userInfo);
 
   const responseFail=(err)=>{
     console.error(err);
   }
 
+  console.log(logged);
   return(
     <LoginContainer>
       <Container>
