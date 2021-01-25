@@ -2,6 +2,7 @@ import React, {useState} from "react";
 //import styled from 'styled-components';
 import Store from './Store/store';
 import LoginContainer from "./Components/LoginContainer";
+import LogoutContainer from "./Components/LogoutContainer";
 
 const App = () =>{
   const [logged, setLogged] = useState(false);
@@ -18,7 +19,10 @@ const App = () =>{
   return (
    <div>
      <Store.Provider value={value}>
-       <LoginContainer/>
+     {logged ?
+        <LogoutContainer/> :
+        <LoginContainer/>
+      }
      </Store.Provider>
    </div>
   );
