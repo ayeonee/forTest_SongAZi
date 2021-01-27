@@ -4,10 +4,10 @@ import Login from './Login';
 
 const LoginContainer =()=>(
     <Store.Consumer>
-        {store =>(
+        {(value) =>(
             <Login
-            logged={store.logged} 
-            onLogin={store.onLogin}/>
+            logged={value.logged} 
+            onLogin={value.onLogin}/>
         )
         }
     </Store.Consumer>

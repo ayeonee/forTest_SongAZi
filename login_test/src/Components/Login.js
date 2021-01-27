@@ -15,7 +15,7 @@ const Login = ({logged, onLogin}) => {
         provider : "google",
       }
     ]);
-    onLogin();
+    doSignUp();
   }
 
   const responseKakao = (response) => {
@@ -27,8 +27,6 @@ const Login = ({logged, onLogin}) => {
         provider : "kakao"
       }
     ]);
-    console.log("로그인 되었습니다");
-    onLogin();
   }
 
   const responseFail=(err)=>{
@@ -36,6 +34,15 @@ const Login = ({logged, onLogin}) => {
   }
 
   console.log(logged);
+
+  const doSignUp=()=>{
+    const {id, userId, userName, provider}=userInfo;
+    window.sessionStorage.setItem('id',id);
+    window.sessionStorage.setItem('userId',userId);
+    window.sessionStorage.setItem('userName',userName);
+    window.sessionStorage.setItem('provider',provider);
+  }
+  
   return(
     <LoginContainer>
       <Container>

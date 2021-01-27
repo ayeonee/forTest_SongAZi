@@ -1,29 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 //import styled from 'styled-components';
-import Store from './Store/store';
-import LoginContainer from "./Components/LoginContainer";
-import LogoutContainer from "./Components/LogoutContainer";
+import LoginProvider from './Components/LoginProvider';
 
 const App = () =>{
-  const [logged, setLogged] = useState(false);
-
-  const onLogin=()=>{
-    setLogged(true);
-  }
-
-  const onLogout=()=>{
-    setLogged(false);
-  }
-
-  const value={logged, onLogin, onLogout}
+  
   return (
    <div>
-     <Store.Provider value={value}>
-     {logged ?
-        <LogoutContainer/> :
-        <LoginContainer/>
-      }
-     </Store.Provider>
+     <LoginProvider/>
    </div>
   );
 };
