@@ -1,13 +1,16 @@
 import React from "react";
-//import styled from 'styled-components';
-import LoginProvider from './Components/LoginProvider';
+import {LoginProvider} from './Store/store';
+//import LoginProvider from './Components/LoginProvider';
+import LoginHOC from './Components/LoginHOC';
 
 const App = () =>{
   
   return (
-   <div>
-     <LoginProvider/>
-   </div>
+    <LoginProvider>
+      <div>
+        <LoginHOC/>
+      </div>
+    </LoginProvider>
   );
 };
 

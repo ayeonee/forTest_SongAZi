@@ -1,16 +1,14 @@
 import React from 'react';
-import Store from '../Store/store';
+import {LoginConsumer} from '../Store/store';
 import Login from './Login';
 
 const LoginContainer =()=>(
-    <Store.Consumer>
-        {(value) =>(
-            <Login
-            logged={value.logged} 
-            onLogin={value.onLogin}/>
+    <LoginConsumer>
+        {({actions}) =>(
+            <Login onLogin={()=>actions.onLogin()} />
         )
         }
-    </Store.Consumer>
+    </LoginConsumer>
 )
 
 export default LoginContainer;

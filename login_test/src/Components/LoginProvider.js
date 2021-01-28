@@ -1,28 +1,30 @@
-import React, {useState} from 'react';
-import Store from '../Store/store';
-import LoginHOC from "./LoginHOC";
+// import React, {useState} from 'react';
+// import Store from '../Store/store';
+// import LoginHOC from "./LoginHOC";
 
-const LoginProvider = () =>{
-    const [logged, setLogged] = useState(false);
+// const LoginProvider = (props) =>{
+//     const [logged, setLogged] = useState(false);
   
-    const onLogin=()=>{
-        setLogged(true);
-    }
+//     const onLogin=()=>{
+//       setLogged(!logged);
+//     }
     
-    const onLogout=()=>{
-        setLogged(false);
-    }
+//     const onLogout=()=>{
+//       setLogged(!logged);
+//     }
 
-    const value={logged, onLogout,onLogin}
-    return (
-     <div>
-       <Store.Provider value={value}>
-        <LoginHOC/>
-       </Store.Provider>
-     </div>
-    );
-  };
+    
+
+//     return (
+//      <div>
+//        <Store.Provider value={{logged, onLogin, onLogout}}>
+//            {props.children}
+//         <LoginHOC/>
+//        </Store.Provider>
+//      </div>
+//     );
+//   };
 
 
-export default LoginProvider;
+// export default LoginProvider;
 

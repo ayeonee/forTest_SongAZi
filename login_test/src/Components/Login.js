@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
-const Login = ({logged, onLogin}) => {
+const Login = ({onLogin}) => {
 
   const [userInfo, setUserInfo]=useState([]);
   const responseGoogle = (response)=>{
@@ -15,7 +15,7 @@ const Login = ({logged, onLogin}) => {
         provider : "google",
       }
     ]);
-    doSignUp();
+    onLogin();
   }
 
   const responseKakao = (response) => {
@@ -33,15 +33,13 @@ const Login = ({logged, onLogin}) => {
     console.error(err);
   }
 
-  console.log(logged);
-
-  const doSignUp=()=>{
-    const {id, userId, userName, provider}=userInfo;
-    window.sessionStorage.setItem('id',id);
-    window.sessionStorage.setItem('userId',userId);
-    window.sessionStorage.setItem('userName',userName);
-    window.sessionStorage.setItem('provider',provider);
-  }
+  // const doSignUp=()=>{
+  //   const {id, userId, userName, provider}=userInfo;
+  //   window.sessionStorage.setItem('id',id);
+  //   window.sessionStorage.setItem('userId',userId);
+  //   window.sessionStorage.setItem('userName',userName);
+  //   window.sessionStorage.setItem('provider',provider);
+  // }
   
   return(
     <LoginContainer>
