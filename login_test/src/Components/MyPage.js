@@ -1,5 +1,4 @@
 import React from 'react';
-import withLogin from './LoginHOC';
 
 const Mypage = ()=>{
     return (
@@ -9,4 +8,4 @@ const Mypage = ()=>{
     );
 }
 
-export default withLogin(Mypage);
+export default Mypage;

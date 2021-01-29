@@ -1,14 +1,14 @@
 import React from "react";
 import {LoginProvider} from './Store/store';
 //import LoginProvider from './Components/LoginProvider';
-import LoginHOC from './Components/LoginHOC';
+import LoginMain from './Components/LoginMain';
 
 const App = () =>{
   
   return (
     <LoginProvider>
       <div>
-        <LoginHOC/>
+        <LoginMain/>
       </div>
     </LoginProvider>
   );

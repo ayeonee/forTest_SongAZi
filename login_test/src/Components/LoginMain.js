@@ -1,15 +1,17 @@
 import React from 'react';
 import {LoginConsumer} from '../Store/store';
 import LoginContainer from './LoginContainer';
+import MyPage from './MyPage';
 
-const withLogin = (WrappedComponent) =>{
+
+const withLogin = () =>{
     return(
         <LoginConsumer>
             { ({state}) => {
                 if(state.logged===false)
                     return <LoginContainer/>
                 else
-                    return <WrappedComponent/>
+                    return <MyPage/>
             }}
         </LoginConsumer>
     );

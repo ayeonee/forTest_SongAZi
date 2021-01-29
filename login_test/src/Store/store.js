@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 const Store=React.createContext({
     state:{logged:false},
     actions:{
@@ -9,13 +9,18 @@ const Store=React.createContext({
 
 const LoginProvider=({children})=>{
     const [logged, setLogged]=useState(false);
+
     const onLogin=()=>{
-        setLogged(!logged);
+        setLogged(current => !current);
     }
       
     const onLogout=()=>{
-        setLogged(!logged);
+        setLogged(current=>!current);
     }
+
+    useEffect(()=>{
+        console.log(logged);
+    },[logged]);
 
     const value={
         state:{logged},

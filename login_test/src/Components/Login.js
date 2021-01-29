@@ -4,9 +4,10 @@ import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
 const Login = ({onLogin}) => {
-
   const [userInfo, setUserInfo]=useState([]);
+
   const responseGoogle = (response)=>{
+    console.log("success login");
     setUserInfo([
       {
         id:userInfo.length,
