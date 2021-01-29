@@ -4,8 +4,8 @@ import Login from './Login';
 
 const LoginContainer =()=>(
     <LoginConsumer>
-        {({actions}) =>(
-            <Login onLogin={()=>actions.onLogin()} />
+        {(value) =>(
+            <Login onLogin={()=>value.onLogin()} />
         )
         }
     </LoginConsumer>

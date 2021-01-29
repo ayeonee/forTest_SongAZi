@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 const Store=React.createContext({
-    state:{logged:false},
-    actions:{
-        onLogin:()=>{},
-        onLogout:()=>{}
-    }
+    logged:false,
+    onLogin:()=>{},
+    onLogout:()=>{}
 });
 
 const LoginProvider=({children})=>{
@@ -23,8 +21,7 @@ const LoginProvider=({children})=>{
     },[logged]);
 
     const value={
-        state:{logged},
-        actions:{onLogin, onLogout}
+        logged, onLogin, onLogout
     };
 
     return (

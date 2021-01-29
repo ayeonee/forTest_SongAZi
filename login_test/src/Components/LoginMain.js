@@ -4,11 +4,11 @@ import LoginContainer from './LoginContainer';
 import MyPage from './MyPage';
 
 
-const withLogin = () =>{
+const LoginMain = () =>{
     return(
         <LoginConsumer>
-            { ({state}) => {
-                if(state.logged===false)
+            { (value) => {
+                if(value.logged===false)
                     return <LoginContainer/>
                 else
                     return <MyPage/>
@@ -17,4 +17,4 @@ const withLogin = () =>{
     );
 };
 
-export default withLogin;
+export default LoginMain;
