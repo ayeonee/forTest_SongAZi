@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Mypage = ()=>{
+const Mypage = ({onLogout})=>{
     return (
         <div>
-            내글 보기 시간표 등등,,,
+            <p>마이페이지,,,</p>
+            <button onClick={onLogout}>로그아웃</button>
         </div>
     );
 }

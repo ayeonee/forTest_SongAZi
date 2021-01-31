@@ -13,12 +13,34 @@ const LoginProvider=({children})=>{
     }
       
     const onLogout=()=>{
+        console.log("run logout");
         setLogged(current=>!current);
+
+        const provider=window.localStorage.getItem('provdier');
+        if(provider === 'google'){
+            const auth2=window.gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function(){
+            console.log('Google Logout');
+            });
+        }
+        else if(provider==='kakao'){
+            window.Kakao.Auth.logout(function(){
+            console.log("Kakao logout");
+            });
+        }
+        
+        window.sessionStorage.clear();
     }
 
     useEffect(()=>{
-        console.log(logged);
-    },[logged]);
+        const id=window.localStorage.getItem('id');
+        if(id){
+            onLogin();
+        }
+        else{
+            onLogout();
+        }
+    },[]);
 
     const value={
         logged, onLogin, onLogout

@@ -16,7 +16,8 @@ const Login = ({onLogin}) => {
         provider : "google",
       }
     ]);
-    onLogin();
+    console.log("success google login");
+    keepLogin();
   }
 
   const responseKakao = (response) => {
@@ -28,19 +29,22 @@ const Login = ({onLogin}) => {
         provider : "kakao"
       }
     ]);
+    console.log("success kakao login");
+    keepLogin();
   }
 
   const responseFail=(err)=>{
     console.error(err);
   }
 
-  // const doSignUp=()=>{
-  //   const {id, userId, userName, provider}=userInfo;
-  //   window.sessionStorage.setItem('id',id);
-  //   window.sessionStorage.setItem('userId',userId);
-  //   window.sessionStorage.setItem('userName',userName);
-  //   window.sessionStorage.setItem('provider',provider);
-  // }
+  const keepLogin=()=>{
+    const {id, userId, userName, provider}=userInfo;
+    window.localStorage.setItem('id',id);
+    window.localStorage.setItem('userId',userId);
+    window.localStorage.setItem('userName',userName);
+    window.localStorage.setItem('provider',provider);
+    onLogin();
+  }
   
   return(
     <LoginContainer>

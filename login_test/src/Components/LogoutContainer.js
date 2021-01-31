@@ -1,16 +1,14 @@
 import React from 'react';
-import Store from '../Store/store';
-import Logout from './Logout';
+import {LoginConsumer} from '../Store/store';
+import MyPage from './MyPage';
 
-const LogoutContainer =({logged, onLogout})=>(
-    <Store.Consumer>
-        {store =>(
-            <Logout
-                logged={store.logged} 
-                onLogout={store.onLogout}/>
+const LogoutContainer =()=>(
+    <LoginConsumer>
+        {(value) =>(
+            <MyPage onClick={()=>value.onLogout()}/>
             )
         }
-    </Store.Consumer>
+    </LoginConsumer>
 )
 
 export default LogoutContainer;
