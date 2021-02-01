@@ -5,7 +5,7 @@ import MyPage from './MyPage';
 const LogoutContainer =()=>(
     <LoginConsumer>
         {(value) =>(
-            <MyPage onClick={()=>value.onLogout()}/>
+            <MyPage onLogout={()=>value.onLogout()}/>
             )
         }
     </LoginConsumer>

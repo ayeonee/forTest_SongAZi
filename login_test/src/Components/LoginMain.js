@@ -1,7 +1,7 @@
 import React from 'react';
 import {LoginConsumer} from '../Store/store';
 import LoginContainer from './LoginContainer';
-import MyPage from './MyPage';
+import LogoutContainer from './LogoutContainer';
 
 
 const LoginMain = () =>{
@@ -11,7 +11,7 @@ const LoginMain = () =>{
                 if(value.logged===false)
                     return <LoginContainer/>
                 else
-                    return <MyPage/>
+                    return <LogoutContainer/>
             }}
         </LoginConsumer>
     );

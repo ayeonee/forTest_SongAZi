@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Mypage = ({onClick})=>{
+const Mypage = ({onLogout})=>{
     return (
         <div>
             <p>마이페이지,,,</p>
-            <button onClick={onClick}>로그아웃</button>
+            <button onClick={onLogout}>로그아웃</button>
         </div>
     );
 }
