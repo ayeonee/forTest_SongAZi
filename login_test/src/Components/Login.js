@@ -1,50 +1,48 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import styled from "styled-components";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
 const Login = ({onLogin}) => {
   const [userInfo, setUserInfo]=useState([]);
-
+  
   const responseGoogle = (response)=>{
-    console.log("success login");
-    setUserInfo([
+    setUserInfo(
       {
         id:userInfo.length,
         userId : response.googleId,
         userName : response.profileObj.name,
         provider : "google",
       }
-    ]);
+    );
     console.log("success google login");
-    keepLogin();
+    onLogin();
   }
 
+
   const responseKakao = (response) => {
-    setUserInfo([
-      {
+    setUserInfo({
         id:userInfo.length,
         userId : response.profile.id,
         userName : response.profile.properties.nickname,
         provider : "kakao"
-      }
-    ]);
+    }
+    );
     console.log("success kakao login");
-    keepLogin();
+    onLogin();
   }
 
   const responseFail=(err)=>{
     console.error(err);
   }
 
-  const keepLogin=()=>{
-    const {id, userId, userName, provider}=userInfo;
-    window.localStorage.setItem('id',id);
-    window.localStorage.setItem('userId',userId);
-    window.localStorage.setItem('userName',userName);
-    window.localStorage.setItem('provider',provider);
-    onLogin();
-  }
+  useEffect(()=>{
+    window.localStorage.setItem('userId',userInfo.userId);
+    window.localStorage.setItem('userName',userInfo.userName);
+    window.localStorage.setItem('provider',userInfo.provider);
+    console.log(localStorage);
+  })
+  
   
   return(
     <LoginContainer>

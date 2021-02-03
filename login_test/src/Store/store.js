@@ -13,11 +13,9 @@ const LoginProvider=({children})=>{
     }
       
     const onLogout=()=>{
-        console.log("run logout");
-        setLogged(current=>!current);
-
-        const provider=window.localStorage.getItem('provdier');
-        if(provider === 'google'){
+        const provider=window.localStorage.getItem('provider');
+        console.log(provider);
+        if(provider === "google"){
             const auth2=window.gapi.auth2.getAuthInstance();
             auth2.signOut().then(function(){
             console.log('Google Logout');
@@ -29,7 +27,9 @@ const LoginProvider=({children})=>{
             });
         }
         
-        window.sessionStorage.clear();
+        window.localStorage.clear();
+        setLogged(current=>!current);
+
     }
 
     // useEffect(()=>{
