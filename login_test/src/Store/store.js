@@ -9,10 +9,12 @@ const LoginProvider=({children})=>{
     const [logged, setLogged]=useState(false);
 
     const onLogin=()=>{
+        console.log("온로그인");
         setLogged(current => !current);
     }
       
     const onLogout=()=>{
+        setLogged(current=>!current);
         const provider=window.localStorage.getItem('provider');
         console.log(provider);
         if(provider === "google"){
@@ -26,15 +28,13 @@ const LoginProvider=({children})=>{
             console.log("Kakao logout");
             });
         }
-        
         window.localStorage.clear();
-        setLogged(current=>!current);
-
     }
 
     // useEffect(()=>{
-    //     const id=window.localStorage.getItem('id');
-    //     if(id){
+    //     const id=window.localStorage.getItem("id");
+    //     console.log(id);
+    //     if(id!==null){
     //         onLogin();
     //     }
     //     else{
