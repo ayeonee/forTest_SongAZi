@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 const Store=React.createContext({
     logged:false,
     onLogin:()=>{},
@@ -9,7 +9,6 @@ const LoginProvider=({children})=>{
     const [logged, setLogged]=useState(false);
 
     const onLogin=()=>{
-        console.log("온로그인");
         setLogged(current => !current);
     }
       
@@ -31,16 +30,16 @@ const LoginProvider=({children})=>{
         window.localStorage.clear();
     }
 
-    // useEffect(()=>{
-    //     const id=window.localStorage.getItem("id");
-    //     console.log(id);
-    //     if(id!==null){
-    //         onLogin();
-    //     }
-    //     else{
-    //         onLogout();
-    //     }
-    // },[]);
+    useEffect(()=>{
+        const id=window.localStorage.getItem("id");
+        console.log(id);
+        if(id!=="undefined"){
+            onLogin();
+        }
+        else{
+            onLogout();
+        }
+    },[]);
 
     const value={
         logged, onLogin, onLogout
