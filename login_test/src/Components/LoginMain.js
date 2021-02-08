@@ -15,8 +15,9 @@ const LoginMain = () =>{
     //         }}
     //     </LoginConsumer>
     // );
-    if(window.localStorage.getItem('id') !== null){
-        return <LogoutContainer/>
+    console.log("dd");
+    if(window.localStorage.getItem('id') !== "undefined" && window.localStorage.getItem('id') !== null){
+        return <LogoutContainer/>;
     }
     else{
         return <LoginContainer/>

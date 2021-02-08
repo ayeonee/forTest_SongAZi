@@ -37,6 +37,7 @@ const Login = ({onLogin}) => {
   }
 
   useEffect(()=>{
+    console.log(localStorage);
     window.localStorage.setItem('id',userInfo.id);
     window.localStorage.setItem('userId',userInfo.userId);
     window.localStorage.setItem('userName',userInfo.userName);
@@ -62,7 +63,6 @@ const Login = ({onLogin}) => {
               )}
               onSuccess={responseGoogle}
               onFailure={responseFail}
-              cookiePolicy={'single_host_origin'}
             />
             <KakaoLogin
               token="d61079c156018c7a8055d9a015191dfa"
