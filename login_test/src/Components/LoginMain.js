@@ -4,19 +4,8 @@ import LoginContainer from './LoginContainer';
 import LogoutContainer from './LogoutContainer';
 
 
-const LoginMain = () =>{
-    // return(
-    //     <LoginConsumer>
-    //         { (value) => {
-    //             if(value.logged===false)
-    //                 return <LoginContainer/>
-    //             else
-    //                 return <LogoutContainer/>
-    //         }}
-    //     </LoginConsumer>
-    // );
-    console.log("dd");
-    if(window.localStorage.getItem('id') !== "undefined" && window.localStorage.getItem('id') !== null){
+const LoginMain = ({logged}) =>{
+    if(logged){
         return <LogoutContainer/>;
     }
     else{

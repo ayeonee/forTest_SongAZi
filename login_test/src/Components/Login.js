@@ -37,11 +37,12 @@ const Login = ({onLogin}) => {
   }
 
   useEffect(()=>{
-    console.log(localStorage);
-    window.localStorage.setItem('id',userInfo.id);
-    window.localStorage.setItem('userId',userInfo.userId);
-    window.localStorage.setItem('userName',userInfo.userName);
-    window.localStorage.setItem('provider',userInfo.provider);
+    if(userInfo.userId){
+      window.localStorage.setItem('id',userInfo.id);
+      window.localStorage.setItem('userId',userInfo.userId);
+      window.localStorage.setItem('userName',userInfo.userName);
+      window.localStorage.setItem('provider',userInfo.provider);
+    }
     console.log(localStorage);
   },[userInfo])
   

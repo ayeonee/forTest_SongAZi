@@ -4,7 +4,7 @@ import LoginMain from './Components/LoginMain';
 
 
 const App = () =>{
-  const [logged, setLogged]=useState(false);
+  const [logged, setLogged]=useState(Boolean(localStorage.getItem('id')));
 
   const onLogin=()=>{
       setLogged(true);
@@ -35,7 +35,7 @@ const value={
 
   return (
   <Store.Provider value={value}>
-    <LoginMain/>
+    <LoginMain logged={logged}/>
   </Store.Provider>
   );
 };
