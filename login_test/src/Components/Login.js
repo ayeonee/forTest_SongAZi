@@ -64,6 +64,7 @@ const Login = ({onLogin}) => {
               )}
               onSuccess={responseGoogle}
               onFailure={responseFail}
+              redirectUri="http://localhost:3000/"
             />
             <KakaoLogin
               token="d61079c156018c7a8055d9a015191dfa"
