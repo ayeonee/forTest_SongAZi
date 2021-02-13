@@ -1,10 +1,10 @@
 const express =require('express');
 const app=express();
-const bodyParser=require('body-parser');
 const port=process.env.PORT || 3001;
 
-app.use(bodyParser.json());
-app.use('/api', (req, res)=> res.json({}));
+app.get('/', (req, res)=> {
+    res.send('Server Response Success');
+});
 
 app.listen(port,()=>{
     console.log(`express is running on ${port}`);
