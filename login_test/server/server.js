@@ -1,11 +1,9 @@
 const express =require('express');
 const app=express();
-const port=process.env.PORT || 3001;
+const api=require('./routes/index');
 
-app.get('/', (req, res)=> {
-    res.send('Server Response Success');
-});
+app.use('/api', api);
 
-app.listen(port,()=>{
-    console.log(`express is running on ${port}`);
+app.listen(3001,()=>{
+    console.log(`express is running on 3001`);
 })
