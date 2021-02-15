@@ -10,15 +10,14 @@ const App = () =>{
       setLogged(true);
   }
     
-const onLogout=()=>{
-  setLogged(false);
-  window.localStorage.clear();
-};
+  const onLogout=()=>{
+    setLogged(false);
+    window.localStorage.clear();
+  };
 
-const value={
-  logged, onLogin, onLogout
-};
-
+  const value={
+    logged, onLogin, onLogout
+  };
 
   return (
   <Store.Provider value={value}>

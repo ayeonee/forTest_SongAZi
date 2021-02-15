@@ -13,6 +13,7 @@ const Login = ({onLogin}) => {
         userId : response.googleId,
         userName : response.profileObj.name,
         provider : "google",
+        accessToken :response.accessToken,
       }
     );
     console.log("success google login");
@@ -25,7 +26,8 @@ const Login = ({onLogin}) => {
         id:userInfo.length,
         userId : response.profile.id,
         userName : response.profile.properties.nickname,
-        provider : "kakao"
+        provider : "kakao",
+        accessToken : response.response.access_token
     }
     );
     console.log("success kakao login");
