@@ -19,8 +19,22 @@ const App = () =>{
   }
     
   const onLogout=()=>{
+    
+    const provider = window.localStorage.getItem('provider');
+    if(provider === 'google') {
+      const auth2 = window.gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function() {
+        console.log('Google Logout.');
+      });
+    }
+    else if(provider === 'kakao'){
+      window.Kakao.Auth.logout(function() {
+        console.log("Kakao logout");
+      });
+    }
     setLogged(false);
     window.localStorage.clear();
+    
   };
 
   const value={

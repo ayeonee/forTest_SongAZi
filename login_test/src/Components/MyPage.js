@@ -1,9 +1,18 @@
 import React from 'react';
 
 const Mypage = ({onLogout})=>{
+
+    var userName;
+    if(window.localStorage.getItem('userName')){
+        userName=window.localStorage.getItem('userName');
+    }
+    else{
+        userName="에러";
+    }
+
     return (
         <div>
-            <p>마이페이지,,,</p>
+            <p>{userName}님 환영합니다</p>
             <button onClick={onLogout}>로그아웃</button>
         </div>
     );
