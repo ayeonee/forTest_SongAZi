@@ -1,4 +1,4 @@
-import React from 'react';
+import {createContext} from 'react';
 
 interface Props{
     logged : boolean;
@@ -6,7 +6,7 @@ interface Props{
     onLogout : Function;
 }
 
-const Store = React.createContext<Props>({
+const Store = createContext<Props>({
     logged:false,
     onLogin:()=>{},
     onLogout:()=>{}

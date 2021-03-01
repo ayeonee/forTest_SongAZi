@@ -10,7 +10,7 @@ interface IUser{
   accessToken : string;
 }
 
-const Login : React.FC=()=>{
+const Login : React.FC=({onLogin})=>{
   const [userInfo, setUserInfo]=useState<IUser>();
 
   const responseGoogle = (response : any)=>{
@@ -22,6 +22,7 @@ const Login : React.FC=()=>{
         accessToken :response.accessToken,
       }
     );
+    
     console.log("success google login");
   }
 
@@ -37,6 +38,8 @@ const Login : React.FC=()=>{
     );
     console.log("success kakao login");
   }
+
+  console.log(userInfo);
 
   const responseFail=()=>{
     console.error();
