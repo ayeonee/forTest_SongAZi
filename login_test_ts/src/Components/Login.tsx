@@ -10,7 +10,7 @@ interface IUser{
   accessToken : string;
 }
 
-const Login : React.FC=({onLogin})=>{
+function Login (onLogin : Function){
   const [userInfo, setUserInfo]=useState<IUser>();
 
   const responseGoogle = (response : any)=>{
@@ -22,7 +22,7 @@ const Login : React.FC=({onLogin})=>{
         accessToken :response.accessToken,
       }
     );
-    
+    onLogin();
     console.log("success google login");
   }
 
