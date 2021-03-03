@@ -4,14 +4,19 @@ import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 
 interface IUser{
-  userId : string;
-  userName : string;
-  provider : string;
-  accessToken : string;
+  userId : string,
+  userName : string,
+  provider : string,
+  accessToken : string
 }
 
-const Login =({onLogin} : {onLogin :Function})=>{
-  const [userInfo, setUserInfo]=useState<IUser>();
+const Login = ({onLogin} : {onLogin :Function})=>{
+  const [userInfo, setUserInfo]=useState<IUser>({
+    userId : "",
+    userName : "",
+    provider : "",
+    accessToken : ""
+  });
 
   const responseGoogle = (response : any)=>{
     setUserInfo(
@@ -42,12 +47,11 @@ const Login =({onLogin} : {onLogin :Function})=>{
   console.log(userInfo);
 
   useEffect(()=>{
-    if(typeof userInfo !==undefined){
-      window.localStorage.setItem('userId',(userInfo as IUser).userId);
-      window.localStorage.setItem('userName',(userInfo as IUser).userName);
-      window.localStorage.setItem('provider',(userInfo as IUser).provider);
+    if(userInfo!.userId){
+      window.localStorage.setItem('userId',userInfo!.userId);
+      window.localStorage.setItem('userName',userInfo!.userName);
+      window.localStorage.setItem('provider',userInfo!.provider);
     }
-    console.log(localStorage);
   },[userInfo])
 
   const responseFail=()=>{

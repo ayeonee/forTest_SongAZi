@@ -2,8 +2,14 @@ import React,{useState} from 'react';
 import LoginContainer from './Components/LoginContainer';
 import Store from './Store/store';
 
+interface IValue{
+  logged : boolean;
+  onLogin : Function;
+  onLogout : Function;
+}
+
 const App : React.FC =() => {
-  const [logged, setLogged]=useState(false);
+  const [logged, setLogged]=useState(Boolean(localStorage.getItem('id')));
 
   const onLogin=()=>{
     setLogged(true);
@@ -14,7 +20,7 @@ const App : React.FC =() => {
     window.localStorage.clear();
   }
 
-  const value={
+  const value : IValue={
     logged, onLogin, onLogout
   };
 
