@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from "./Login.module.scss";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
@@ -10,7 +10,7 @@ interface IUser{
   accessToken : string;
 }
 
-function Login (onLogin : Function){
+const Login =({onLogin} : {onLogin :Function})=>{
   const [userInfo, setUserInfo]=useState<IUser>();
 
   const responseGoogle = (response : any)=>{
@@ -40,6 +40,15 @@ function Login (onLogin : Function){
   }
 
   console.log(userInfo);
+
+  useEffect(()=>{
+    if(typeof userInfo !==undefined){
+      window.localStorage.setItem('userId',(userInfo as IUser).userId);
+      window.localStorage.setItem('userName',(userInfo as IUser).userName);
+      window.localStorage.setItem('provider',(userInfo as IUser).provider);
+    }
+    console.log(localStorage);
+  },[userInfo])
 
   const responseFail=()=>{
     console.error();
