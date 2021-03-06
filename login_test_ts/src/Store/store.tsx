@@ -1,12 +1,7 @@
 import {createContext} from 'react';
+import {IValue} from "../Types";
 
-interface Props{
-    logged : boolean;
-    onLogin : Function;
-    onLogout : Function;
-}
-
-const Store = createContext<Props>({
+const Store = createContext<IValue>({
     logged:false,
     onLogin:()=>{},
     onLogout:()=>{}

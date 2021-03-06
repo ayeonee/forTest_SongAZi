@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import style from "./Login.module.scss";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
+import {IValue} from "../Types";
 
 interface IUser{
   userId : string,
@@ -10,7 +11,7 @@ interface IUser{
   accessToken : string
 }
 
-const Login = ({onLogin} : {onLogin :Function})=>{
+const Login : React.FC<IValue>=()=>{
   const [userInfo, setUserInfo]=useState<IUser>({
     userId : "",
     userName : "",
@@ -27,9 +28,8 @@ const Login = ({onLogin} : {onLogin :Function})=>{
         accessToken :response.accessToken,
       }
     );
-    onLogin();
     console.log("success google login");
-  }
+    }
 
 
   const responseKakao = (response : any) => {
