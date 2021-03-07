@@ -1,9 +1,15 @@
 import {createContext} from 'react';
 
-const Store = createContext({
+interface IValue{
+    logged : boolean,
+    onLogin : Function,
+    onLogout : Function
+}
+
+const Store = createContext<IValue>({
     logged:false,
     onLogin:()=>{},
-    onLogout:()=>{}
+    onLogout:()=> {},
 });
 
 export default Store;

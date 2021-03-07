@@ -1,16 +1,12 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Store from '../Store/store';
 import Login from './Login';
 
-function LoginContainer(){
+const LoginContainer : React.FC =() =>{
+    const useLogin=useContext(Store);
     return (
-    <Store.Consumer>
-        {(value)=>(
-            <Login {...value.onLogin}/>
-        )
-        }
-    </Store.Consumer>
+        <Login onLogin={useLogin.onLogin}/>
     )
-} 
+}
 
 export default LoginContainer;
