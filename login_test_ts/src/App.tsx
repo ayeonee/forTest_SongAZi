@@ -1,23 +1,27 @@
 import React,{useState} from 'react';
-import LoginContainer from './Components/LoginContainer';
+import LoginMain from './Components/LoginMain';
 import Store from './Store/store';
-import {IValue} from "./Types";
 
 const App : React.FC =() => {
-  const [logged, setLogged]=useState<boolean>(Boolean(localStorage.getItem('id')));
+  const [logged, setLogged]=useState<boolean>(Boolean(localStorage.getItem('userId')));
+  console.log(logged);
 
-  const value : IValue={
-    logged, 
-    onLogin:()=>{setLogged(true);}, 
-    onLogout:()=>{
-      setLogged(false);
-      window.localStorage.clear();
-    }
+  const onLogin = () => {
+    setLogged(true);
+  }
+  const onLogout = () => {
+    setLogged(false);
+    window.localStorage.clear();
+  }
+  const value={
+    logged,
+    onLogin,
+    onLogout
   };
 
   return (
     <Store.Provider value={value}>
-      <LoginContainer/>
+      <LoginMain logged={logged}/>
     </Store.Provider>
   );
 }

@@ -1,16 +1,15 @@
 import React from 'react';
 import Store from '../Store/store';
-import Login from './Login';
+import MyPage from './MyPage';
 
-function LoginContainer(){
+const LogoutContainer : React.FC =() =>{
     return (
     <Store.Consumer>
         {(value)=>(
-            <Login {...value.onLogin}/>
+            <MyPage {...value.onLogout}/>
         )
         }
     </Store.Consumer>
     )
 } 
-
-export default LoginContainer;
+export default LogoutContainer;
