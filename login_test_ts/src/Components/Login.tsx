@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import style from "./Login.module.scss";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
@@ -10,8 +10,7 @@ interface IUser{
   accessToken : string
 }
 
-  //const Login : React.FC=({onLogin} : any)=>{
-  function Login({onLogin} : any){
+function Login({onLogin} : any){
 
   const [userInfo, setUserInfo]=useState<IUser>({
     userId : "",
@@ -44,6 +43,7 @@ interface IUser{
       }
     );
     console.log("success kakao login");
+    onLogin();
   }
 
   console.log(userInfo);
