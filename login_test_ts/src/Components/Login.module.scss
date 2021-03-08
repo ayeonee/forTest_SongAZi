@@ -71,25 +71,3 @@
   justify-content : center;
   align-items : center;
 };
-
-.Container{
-  border : 2px solid grey;
-  width: 300px;
-  height: 500px;
-  background-color :beige;
-};
-
-.ContainerTop {
-  background-color: white;
-  border: none;
-  text-align:center;
-  background-color :beige;
-};
-
-.ContainerBody {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 300px;
-  flex-direction:column;
-};

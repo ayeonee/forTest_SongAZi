@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Mypage ({onLogout} : any){
     var userName;
     if(window.localStorage.getItem('userName')){
