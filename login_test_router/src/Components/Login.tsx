@@ -2,12 +2,12 @@ import {useState, useEffect} from 'react';
 import style from "./Login.module.scss";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
+import { signIn } from './auth';
 
 interface IUser{
   userId : string,
   userName : string,
-  provider : string,
-  accessToken : string
+  provider : string
 }
 
 function Login(){
@@ -16,7 +16,6 @@ function Login(){
     userId : "",
     userName : "",
     provider : "",
-    accessToken : ""
   });
 
   const responseGoogle = (response : any)=>{
@@ -25,11 +24,11 @@ function Login(){
         userId : response.googleId,
         userName : response.profileObj.name,
         provider : "google",
-        accessToken :response.accessToken,
       }
     );
     console.log("success google login");
-    }
+    signIn(userInfo.userId);
+  }
 
 
   const responseKakao = (response : any) => {
@@ -38,7 +37,6 @@ function Login(){
         userId : response.profile.id,
         userName : response.profile.properties.nickname,
         provider : "kakao",
-        accessToken : response.response.access_token
       }
     );
     console.log("success kakao login");
