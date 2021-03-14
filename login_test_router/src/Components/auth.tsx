@@ -1,4 +1,10 @@
-const users=[
+interface User{
+    userId : string,
+    userName : string,
+    provider : string
+  }
+
+const users : User[] =[
     {
         userId : "115066686759720403740",
         userName : "김아연",
@@ -11,7 +17,7 @@ const users=[
     }
 ]
 
-export function signIn(userId : any){
+export function signIn(userId : string){
     const user = users.find((user) => user.userId === userId)
     if(user===undefined) throw new Error()
     return user;
