@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react';
 import style from "./Login.module.scss";
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
-import { signIn } from './auth';
 
 interface IUser{
   userId : string,
@@ -10,7 +9,7 @@ interface IUser{
   provider : string
 }
 
-function Login(){
+function Login({login} : any){
 
   const [userInfo, setUserInfo]=useState<IUser>({
     userId : "",
@@ -27,7 +26,7 @@ function Login(){
       }
     );
     console.log("success google login");
-    signIn(userInfo.userId);
+    login(userInfo.userId);
   }
 
 

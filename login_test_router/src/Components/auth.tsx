@@ -18,6 +18,7 @@ const users : User[] =[
 ]
 
 export function signIn(userId : string){
+    console.log(userId);
     const user = users.find((user) => user.userId === userId)
     if(user===undefined) throw new Error()
     return user;

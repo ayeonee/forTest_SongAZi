@@ -1,4 +1,4 @@
-function Mypage ({onLogout} : any){
+function Mypage ({user} : any){
     var userName;
     if(window.localStorage.getItem('userName')){
         userName=window.localStorage.getItem('userName');
@@ -10,7 +10,6 @@ function Mypage ({onLogout} : any){
     return (
         <div>
             <p>{userName}님 환영합니다</p>
-            <button onClick={onLogout}>로그아웃</button>
         </div>
     );
 }

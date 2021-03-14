@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import {AuthRoute} from "./Components/AuthRoute"
 import { signIn } from './Components/auth';
 import Login from './Components/Login';
 import MyPage from './Components/MyPage';
@@ -17,9 +18,10 @@ const App : React.FC =() => {
     provider:""
   });
 
-  const authenticated = user != null; //인증여부 저장
+  const authenticated : boolean = user != null; //인증여부 저장
+  console.log(authenticated);
 
-  const login=(userId : string)=>setUser(signIn(userId));
+  const login = (userId : string) => setUser(signIn(userId));
   const logout = () => setUser({
     userId : "",
     userName : "",
@@ -27,10 +29,16 @@ const App : React.FC =() => {
   });
 
   return (
-    <>
-      <Route component={Login} path="/" exact />
-      <Route component={MyPage} path="/mypage" />
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route render={()=><Login login={login}/>} path="/" exact />
+        <AuthRoute 
+          authenticated={authenticated}
+          path = "/mypage"
+          render={()=><MyPage user={user}/>}
+        />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
