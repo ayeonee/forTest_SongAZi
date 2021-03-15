@@ -28,7 +28,6 @@ function Login({login} : any, authenticated : boolean){
     console.log("success google login");
   }
 
-
   const responseKakao = (response : any) => {
     setUserInfo(
       {

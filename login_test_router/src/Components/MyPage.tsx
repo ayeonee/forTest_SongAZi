@@ -12,7 +12,7 @@ function Mypage ({user} : any, {logout} : any){
             <p>{userName}님 환영합니다</p>
             <button onClick={logout}>로그아웃</button>
         </div>
-    );
+    )
 }
 
 export default Mypage;
