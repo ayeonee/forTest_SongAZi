@@ -22,14 +22,12 @@ const App : React.FC =() => {
   console.log(authenticated);
 
   const login = (userId : string) => setUser(signIn(userId));
-  const logout = () => {
-    console.log("록ㅡ아웃");
+  const logout = () =>
     setUser({
-    userId : "",
-    userName : "",
-    provider : ""
-  });
-}
+      userId : "",
+      userName : "",
+      provider : ""
+    });
 
   return (
     <div>
@@ -42,7 +40,7 @@ const App : React.FC =() => {
           path = "/mypage"
           render={(props : any)=><MyPage user={user} logout={logout} {...props}/>}
         /> */}
-        <Route render={()=><Login login={login} authenticated={authenticated}/>} path="/" exact />
+        <Route render={()=><Login login={login}/>} path="/" exact />
         <Route render={()=><Mypage user={user} logout={logout}/>} path="/mypage" exact />
       </Switch>
     </div>

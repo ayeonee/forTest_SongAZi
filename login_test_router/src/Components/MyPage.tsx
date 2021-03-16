@@ -6,7 +6,7 @@ function Mypage ({user} : any, {logout} : any){
     else{
         userName="에러";
     }
-
+    
     return (
         <div>
             <p>{userName}님 환영합니다</p>

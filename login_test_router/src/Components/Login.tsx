@@ -9,7 +9,7 @@ interface IUser{
   provider : string
 }
 
-function Login({login} : any, authenticated : boolean){
+function Login({login} : any){
 
   const [userInfo, setUserInfo]=useState<IUser>({
     userId : "",
