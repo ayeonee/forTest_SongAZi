@@ -1,24 +1,28 @@
+/* 인증이 필요한 컴포넌트를 위한 전용 라우터 */
+
 import React from "react";
 import {Route, Redirect} from "react-router-dom";
 
-interface Props{
-    path? : string | string[],
-    render : Function,
-    exact? : boolean,
-    authenticated : boolean
+type RoutePageComponent =
+  | React.ComponentType<any>;
+
+interface Props {
+    page: RoutePageComponent;
+    authenticated :boolean;
+    path : string;
+    exact? : boolean
 }
 
-export const AuthRoute : React.FC<Props> =({
-    render : render,
-    authenticated : authenticated,
-    ...parentProps
-})=>{
+
+export const AuthRoute : React.FC<Props> = props =>{
+    const Page : RoutePageComponent = props.page;
+    const authenticated = props.authenticated;
     return(
         <Route
-        {...parentProps}
+        {...props}
         render={(props)=>
         authenticated ?(
-            render
+            <Page {...props}/>
         ) : (
             <Redirect 
                 to={{pathname : "/", state : {from: props.location}}}

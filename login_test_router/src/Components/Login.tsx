@@ -39,8 +39,6 @@ function Login({login} : any){
     console.log("success kakao login");
   }
 
-  console.log(userInfo);
-
   useEffect(()=>{
     if(userInfo!.userId){
       login(userInfo.userId);

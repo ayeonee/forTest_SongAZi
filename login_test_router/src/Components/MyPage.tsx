@@ -1,4 +1,9 @@
-function Mypage ({user} : any, {logout} : any){
+interface Props{
+    user : any,
+    logout : ()=>void
+}
+
+const Mypage : React.FC<Props> = ({user, logout}) =>{
     var userName;
     if(user.userName){
         userName=user.userName;
