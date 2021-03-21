@@ -4,12 +4,13 @@ import axios from "axios";
 
 const App = () =>{
     const handleLogin = async googleData => {
-        console.log(googleData.accessToken);
         await axios.post("http://localhost:5000/api/users/auth/google",
-          {accessToken : googleData.accessToken}
+          {
+            tokenId : googleData.tokenId
+          }
         )
         .then((res)=>{
-          alert(res.data.token);
+          alert(res.data.message);
         }   
         )
     }
