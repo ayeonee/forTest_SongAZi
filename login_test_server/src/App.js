@@ -19,7 +19,9 @@ const App = () =>{
     const responseKakao = async response => {
       await axios.post("http://localhost:5000/api/users/auth/kakao",
         {
-          accessToken : response.response.access_token
+          accessToken : response.response.access_token,
+          userId : response.profile.id,
+          userName : response.profile.properties.nickname,
         }
       )
       .then((res)=>{
