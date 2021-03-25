@@ -17,6 +17,7 @@ const App = () =>{
     }
 
     const responseKakao = async response => {
+      console.log(response.profile.properties.nickname);
       await axios.post("http://localhost:5000/api/users/auth/kakao",
         {
           accessToken : response.response.access_token,
@@ -41,7 +42,7 @@ const App = () =>{
           token="d61079c156018c7a8055d9a015191dfa"
           buttonText="Log in with kakao"
           onSuccess={responseKakao}
-          onFail={responseKakao}
+          onFail={console.error}
         />
         </>
     );
