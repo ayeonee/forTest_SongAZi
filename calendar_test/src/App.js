@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { DayPilot, DayPilotMonth } from 'daypilot-pro-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Month extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: DayPilot.Date.today(),
+      eventEndSpec: 'Date',
+    };
+  }
+
+  render() {
+    var { ...config } = this.state;
+    return (
+      <div>
+        <DayPilotMonth
+          {...config}
+          ref={(component) => {
+            this.calendar = component && component.control;
+          }}
+        />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Month;
