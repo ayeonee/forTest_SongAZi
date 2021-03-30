@@ -1,5 +1,4 @@
 import React from 'react';
-import Store from '../Store';
 import GoogleLogin from 'react-google-login';
 import KakaoLogin from 'react-kakao-login';
 import axios from 'axios';
@@ -31,7 +30,7 @@ const Login = () => {
             });
     };
     return (
-        <Store.Provider value={loginInfo}>
+        <>
             <GoogleLogin
                 clientId="723578906212-p9e6ejvqm6rbbk4d2lo0djvks5j3k530.apps.googleusercontent.com"
                 buttonText="Log in with Google"
@@ -40,7 +39,7 @@ const Login = () => {
                 cookiePolicy={'single_host_origin'}
             />
             <KakaoLogin token="d61079c156018c7a8055d9a015191dfa" buttonText="Log in with kakao" onSuccess={responseKakao} onFail={console.error} />
-        </Store.Provider>
+        </>
     );
 };
 
