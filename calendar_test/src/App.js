@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import { DayPilot, DayPilotMonth } from 'daypilot-pro-react';
+import React from 'react';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+import { Eventcalendar, getJson, toast, localeKo } from '@mobiscroll/react';
 
-class Month extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: DayPilot.Date.today(),
-      eventEndSpec: 'Date',
-    };
-  }
+function App() {
+  const [myEvents, setEvents] = React.useState([]);
 
-  render() {
-    var { ...config } = this.state;
-    return (
-      <div>
-        <DayPilotMonth
-          {...config}
-          ref={(component) => {
-            this.calendar = component && component.control;
-          }}
-        />
-      </div>
+  React.useEffect(() => {
+    getJson(
+      'https://trial.mobiscroll.com/events/?vers=5',
+      (events) => {
+        setEvents(events);
+      },
+      'jsonp'
     );
-  }
+  }, []);
+
+  const onEventClick = React.useCallback((event) => {
+    toast({
+      message: event.event.title,
+    });
+  }, []);
+
+  const view = React.useMemo(() => {
+    return {
+      calendar: { labels: true },
+    };
+  }, []);
+
+  return (
+    <Eventcalendar
+      locale={localeKo}
+      theme="ios"
+      themeVariant="light"
+      clickToCreate={true}
+      dragToCreate={true}
+      dragToMove={true}
+      dragToResize={true}
+      height={697}
+      data={myEvents}
+      view={view}
+      onEventClick={onEventClick}
+    />
+  );
 }
 
-export default Month;
+export default App;
