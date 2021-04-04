@@ -1,0 +1,11 @@
+@include mbsc-custom-theme(
+  'windows-meemo',
+  'windows',
+  (
+    'background': #f7f7f7,
+    'text': rgb(93, 185, 170),
+    'accent': #52a58e,
+  )
+);
+
+@import '~@mobiscroll/react/dist/css/mobiscroll.scss';

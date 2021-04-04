@@ -1,5 +1,5 @@
 import React from 'react';
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+import '@mobiscroll/react/dist/css/mobiscroll.scss';
 import {
   Eventcalendar,
   snackbar,
@@ -13,13 +13,13 @@ import {
   SegmentedGroup,
   SegmentedItem,
   MbscCalendarEvent,
-  MbscEventcalendarView,
   localeKo,
+  MbscEventcalendarView,
 } from '@mobiscroll/react';
 
 setOptions({
   locale: localeKo,
-  theme: 'ios',
+  theme: 'windows',
   themeVariant: 'light',
 });
 
